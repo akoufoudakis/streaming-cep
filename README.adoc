@@ -1,0 +1,10 @@
+= Streaming CEP
+
+= SCENARIO (Design)
+image:images/design.png["VertX Application",height=356]
+
+= Pre-Requisites
+* OCP
+* KAFKA Cluster Configuration
+* AMQ Streams
+*
