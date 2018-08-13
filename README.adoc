@@ -56,15 +56,40 @@ Use Streams: If you need to report on or take action immediately as  data  arriv
 Don't: If  you  need  to  perform  in-depth analysis or are compiling a large repository of data for later analysis, a stream-processing approach  may  not  be  a  good  fit.  Let’s  now  walk  through  a  concrete  example  of  stream processing
 
 == Resources Read
+
+=== Straming Architecture Resources Read
 * link:https://www.confluent.io/blog/okay-store-data-apache-kafka/[It’s Okay To Store Data In Apache Kafka]
 * link:https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101[The world beyond batch: Streaming 101 (by Tyler Akidau)]
 * link:https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102[The world beyond batch: Streaming 102 (by Tyler Akidau)]
 * link:https://www.oreilly.com/ideas/questioning-the-lambda-architecture[Questioning the Lambda Architecture (by Jay Kreps)}
-  ** see section *"An alternative"*
-  ** link:http://samza.apache.org/learn/documentation/0.7.0/jobs/reprocessing.html[Reprocessing previously processed data]
+** see section *"An alternative"*
+** link:http://samza.apache.org/learn/documentation/0.7.0/jobs/reprocessing.html[Reprocessing previously processed data]
+
+=== Streams Resources Read
+* link:https://www.confluent.io/blog/introducing-kafka-streams-stream-processing-made-simple/[Introducing Kafka Streams: Stream Processing Made Simple]
+** Tables and Streams are Dual
+** Tables and Stream Processing
+** Joins and Aggregates are Tables Too
+** Windows and Tables 
+** Windows and Tables 
+
+=== Strimzi-KAFKA On OCP Resources
+* link:https://github.com/strimzi/strimzi-kafka-operator[Strimzi - Kafka as a Service (strimzi-kafka-operator)]
+* link:https://github.com/strimzi/strimzi-kafka-operator/tree/master/helm-charts/strimzi-kafka-operator [Strimzi: Kafka as a Service (strimzi-kafka-operator configuration)]
+* link:https://github.com/strimzi/strimzi-kafka-operator/tree/master/documentation[strimzi-kafka-operator documentation]
+* limk:http://strimzi.io/documentation[Strimzi 0.5.0 Docs]
+* link:https://www.slideshare.net/paolopat/introducing-amq-streams-data-streaming-with-apache-kafka[Introducing AMQ Streams data streaming with Apache Kafka ]
+
+=== Demos of Strimzi-KAFKA On OCP
+* link:https://github.com/ppatierno/strimzi-demo[strimzi-demo]
+* link:https://github.com/strimzi/strimzi-lab[Strimzi Lab (RH Summit 2018)]
+* link:https://github.com/radanalyticsio/streaming-lab[radanalytics.io streaming and event processing lab]
+
 
 === General Resource Read
 * link:https://databaseline.bitbucket.io/an-overview-of-apache-streaming-technologies/[An Overview of Apache Streaming Technologies]
+* link:https://github.com/finiteloopme/apache-kafka-openshift[Deploy Apache KAFKA on Openshift]
+* link:
 
 == KAFKA/ZOOKEEPER Environment Sizing Guidance
 
