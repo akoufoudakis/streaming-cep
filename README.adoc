@@ -29,7 +29,6 @@ image:images/Streaming-data.png["Stream",height=180]
 ** What you’d do in a data warehouse
 
 
-
 === Use Cases
 
 1. Credit card fraud
@@ -56,6 +55,16 @@ When you  need  to  use  a  large amount  of  data  over  time  to  eliminate  a
 Use Streams: If you need to report on or take action immediately as  data  arrives,  stream  processing  is  a  good  approach.  
 Don't: If  you  need  to  perform  in-depth analysis or are compiling a large repository of data for later analysis, a stream-processing approach  may  not  be  a  good  fit.  Let’s  now  walk  through  a  concrete  example  of  stream processing
 
+== Resources Read
+* link:https://www.confluent.io/blog/okay-store-data-apache-kafka/[It’s Okay To Store Data In Apache Kafka]
+* link:https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101[The world beyond batch: Streaming 101 (by Tyler Akidau)]
+* link:https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102[The world beyond batch: Streaming 102 (by Tyler Akidau)]
+* link:https://www.oreilly.com/ideas/questioning-the-lambda-architecture[Questioning the Lambda Architecture (by Jay Kreps)}
+  ** see section *"An alternative"*
+  ** link:http://samza.apache.org/learn/documentation/0.7.0/jobs/reprocessing.html[Reprocessing previously processed data]
+
+=== General Resource Read
+* link:https://databaseline.bitbucket.io/an-overview-of-apache-streaming-technologies/[An Overview of Apache Streaming Technologies]
 
 == KAFKA/ZOOKEEPER Environment Sizing Guidance
 
