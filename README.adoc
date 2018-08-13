@@ -1,7 +1,9 @@
-= Streaming CEP
+= Purpose
 
-= SCENARIO (Design)
-image:images/design.png["Streaming CEP Appication Design",height=356]
+Collect all resources in prep for the main applicationon master branch
+
+== Resources
+* iot-amq-streams demo:
 
 = Pre-Requisites
 * OCP
