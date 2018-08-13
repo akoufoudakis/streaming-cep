@@ -57,6 +57,12 @@ Use Streams: If you need to report on or take action immediately as  data  arriv
 Don't: If  you  need  to  perform  in-depth analysis or are compiling a large repository of data for later analysis, a stream-processing approach  may  not  be  a  good  fit.  Let’s  now  walk  through  a  concrete  example  of  stream processing
 
 
+== KAFKA/ZOOKEEPER Environment Sizing Guidance
+
+image:images/KAFKA-ZOOKEEPER-HW-Guidance.png["KAFKA Sizing",height=180] 
+
+
+
 == KAFKA Streams Code Example
 KStream <Integer, Integer> input =  builder.stream(“numbers-topic”);
 
