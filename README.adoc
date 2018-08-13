@@ -1,7 +1,7 @@
 = Streaming CEP
 
 = SCENARIO (Design)
-image:images/design.png["VertX Application",height=356]
+image:images/design.png["Streaming CEP Appication Design",height=356]
 
 = Pre-Requisites
 * OCP
