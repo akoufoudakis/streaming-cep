@@ -2,6 +2,26 @@
 
 Collect all resources in prep for the main applicationon master branch
 
+== When to use Kafka Streams (as of Kafka 0.10)
+Recommended use cases
+* Application Development			
+* “Fast Data” apps (small or big data) 
+* Reactive and stateful applications
+* Linear streams
+* Event-driven systems
+* Continuous transformations
+* Continuous queries
+* Microservices
+
+Questionable use cases
+* Data Science / Data Engineering
+* “Heavy lifting”
+* Data mining
+* Non-linear, branching streams (graphs)
+* Machine learning, number crunching
+* What you’d do in a data warehouse
+
+
 == Resources
 * iot-amq-streams demo:
 
