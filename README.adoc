@@ -4,31 +4,29 @@ Collect all resources in prep for the main application on master branch
 
 == When to use Kafka Streams (as of Kafka 0.10)
 
-*Definition of Stream:* Working  with  data  as  it’s  arriving  in  your  system. 
-*Definition of Stream processing:* The ability to work with an infinite stream of data with continuous computation, as it flows, with no need to collect or store the data to act on it.
+* Definition of Stream:* Working  with  data  as  it’s  arriving  in  your  system. 
+* Definition of Stream processing:* The ability to work with an infinite stream of data with continuous computation, as it flows, with no need to collect or store the data to act on it.
 
 This marble diagram is a simple representation of stream processing. Each circle represents some information or an event occurring at a particular point in time. The number of events is unbounded and moves continually from left to right.
 image:images/Streaming-data.png["Stream",height=356] 
 
-Recommended use cases
-------------------------
-* Application Development			
-* “Fast Data” apps (small or big data) 
+* Recommended use cases
+** Application Development			
+** “Fast Data” apps (small or big data) 
 * Reactive and stateful applications
-* Linear streams
-* Event-driven systems
-* Continuous transformations
-* Continuous queries
-* Microservices
+** Linear streams
+** Event-driven systems
+** Continuous transformations
+** Continuous queries
+** Microservices
 
-Questionable use cases
---------------------------
-* Data Science / Data Engineering
-* “Heavy lifting”
-* Data mining
-* Non-linear, branching streams (graphs)
-* Machine learning, number crunching
-* What you’d do in a data warehouse
+* Questionable use cases
+** Data Science / Data Engineering
+** “Heavy lifting”
+** Data mining
+** Non-linear, branching streams (graphs)
+** Machine learning, number crunching
+** What you’d do in a data warehouse
 
 
 
