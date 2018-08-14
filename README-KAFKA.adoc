@@ -158,6 +158,7 @@ try(Producer<PurchaseKey, String> producer = new KafkaProducer<> (properties)) {
   };
   Future<RecordMetadata> sendFuture = producer.send(record, callback);
 }
+----
 
 === Producer properties
 * *Bootstrap servers:* bootstrap.servers is a comma-separated list of host:port values. Eventually the producer will use all the brokers in the cluster; this list is used for initially connecting to the cluster.
