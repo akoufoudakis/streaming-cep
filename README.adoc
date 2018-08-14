@@ -13,6 +13,8 @@ Our goals based on the use case and implemented code is to show
 * What was failover/scalability of the environment app (learnings good/bad)
 * What was the performance (report on constraints)
 
+*How/What To BenchMark* link:https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines[example]
+
 
 == Architectures
 

@@ -34,7 +34,7 @@ Log Rollover Size Based Parameter
 ** *STRIMZI* :  ??
 
 
-=== Kafka and partitions
+== Kafka and partitions
 
 Partitions are a critical part of Kafka’s design. They’re essential for performance, and *they guarantee that data with the same keys will be sent to the same consumer* and in order. 
 
@@ -48,7 +48,7 @@ image:images/KAFKA-Topic-Partitions.png["Kafka Partitions",height=178]
 * Partitioning serves another purpose, aside from increasing throughput. It allows topic messages to be spread across several machines so that the capacity of a given topic isn’t limited to the available disk space on one server.
 * Now let’s look at another critical role partitions play: ensuring messages with the same keys end up together
 
-==== Partitions group data by key
+=== Partitions group data by key
 * Kafka works with data in key/value pairs. 
 ** If the keys are null, the Kafka producer will write records to partitions chosen in a round-robin fashion. 
 
@@ -56,13 +56,63 @@ image:images/KAFKA-Key-Hash-For-Partition.png["Kafka Partitions & Key Hashing",h
 foo” is sent to partition 0, and “bar” is sent to partition 1. You obtain the partition by hashing the bytes of the key, modulus the number of partitions.
 
 ** If the keys aren’t null, Kafka uses the following formula (shown in pseudocode) to determine which partition to send the key/value pair to:
+
 [source, java]
 ----
 HashCode.(key) % number of partitions
 ----
 
-By using a deterministic approach to select a partition, records with the same key will always be sent to the same partition and in order. The *default partitioner uses this approach*; if you need a different strategy for selecting partitions, you can provide a custom partitioner.
+* By using a deterministic approach to select a partition, records with the same key will always be sent to the same partition and in order. 
+* The *default partitioner uses this approach*; if you need a different strategy for selecting partitions, you can provide a custom partitioner.
+* Specifying a *custom partitioner* Parameter (specify a different partitioner when configuring the Kafka producer)
+** *KAFKA*   :  *partitioner.class=*com.custom.partitioner.PurchaseKeyPartitioner
+** *STRIMZI* :  ??
 
+=== Choosing Right No. Of Partitions
+
+link:https://www.confluent.io/blog/how-to-choose-the-number-of-topicspartitions-in-a-kafka-cluster/[How to choose the number of topics/partitions in a Kafka cluster?]
+
+* On *both the producer and the broker side*, writes to different partitions can be done fully in parallel. 
+* On the *consumer side*, Kafka always gives a single partition’s data to one consumer thread. Thus, the degree of parallelism in the consumer (within a consumer group) is bounded by the number of partitions being consumed. Therefore, in general, the more partitions there are in a Kafka cluster, the higher the throughput one can achieve.
+
+* A *rough formula* for picking the number of partitions is based on *throughput*. 
+** Measure the throughout that you can achieve on a single partition for 
+*** *production* (call it *p*) and 
+*** *consumption* (call it *c*). 
+*** and lets say your *target throughput* is *t*. 
+Then you need to have at least 
+[source, bash]
+----
+max(t/p, t/c) partitions
+----
+
+* per-partition throughput that one can achieve on the producer depends on configurations such as 
+** the batching size, 
+** compression codec, 
+** type of acknowledgement, 
+** replication factor, etc. , 
+
+* producer batching size Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
+* compression codec Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
+* type of acknowledgement Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
+* replication factor Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
+
+* The *consumer throughput* is often application dependent since it corresponds to how fast the consumer logic can process each message. So, you really need to measure it.
+* *Warning:* Although it’s possible to increase the number of partitions over time, one has to be careful if messages are produced with keys. When publishing a keyed message, Kafka deterministically maps the message to a partition based on the hash of the key. This provides a guarantee that messages with the same key are always routed to the same partition. This guarantee can be important for certain applications since messages within a partition are always delivered in order to the consumer. *If the number of partitions changes,* such a guarantee may no longer hold. To avoid this situation, a common practice is to over-partition a bit. Basically, you determine the number of partitions based on a future target throughput, say for one or two years later. Initially, you can just have a small Kafka cluster based on your current throughput. Over time, you can add more brokers to the cluster and proportionally move a subset of the existing partitions to the new brokers (which can be done online). This way, you can keep up with the throughput growth without breaking the semantics in the application when keys are used.
+
+In addition to *throughput*, there are a few other factors that are worth considering when choosing the number of partitions. As you will see, in some cases, having too many partitions may also have negative impact.
+1. More Partitions Requires More Open File Handles
+2. More Partitions May Increase Unavailability
+3. More Partitions May Increase End-to-end Latency
+4. More Partitions May Require More Memory In the Client
 
 
 
