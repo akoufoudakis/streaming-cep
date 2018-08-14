@@ -1,23 +1,24 @@
 = Streaming CEP
 
 = SCENARIO (Design)
-image:images/design.png["Streaming CEP Appication Design",height=356]
+
+*TBD*
 
 == Goals
 
 Our goals based on the use case and implemented code is to show
-- How it is possible to do CEP on top of OCP
-- How to size such an environment
-- What was the architecture (learnings good/bad)
-- What was failover/scalability of the environment app (learnings good/bad)
-- What was the performance (report on constraints)
+* How it is possible to do CEP on top of OCP
+* How to size such an environment
+* What was the architecture (learnings good/bad)
+* What was failover/scalability of the environment app (learnings good/bad)
+* What was the performance (report on constraints)
 
 
 == Architectures
 
 === Architecture 1 - In Stream CEP Processing (Preferable)
 
-image:images/OCP-CEP-Architecture-Option-2-RealTime.PNG["In Stream Realtime CEP",height=356] 
+image:images/OCP-CEP-Architecture-Option-2-RealTime.png["In Stream Realtime CEP",height=356] 
 
 === Architecture 2 - Micro-Batching CEP Processing
 
