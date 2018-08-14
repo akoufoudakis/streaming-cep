@@ -176,6 +176,7 @@ For more information about producer configuration, see the Kafka documentation: 
 
 === Managing Consumer Offsets
 *_KafkaConsumer_* manages some state by periodically committing the offsets of messages consumed from Kafka. Offsets uniquely identify messages and represent the starting positions of messages in the log. 
+
 * Consumers periodically need to commit the offsets of messages they have received. Committing an offset has two implications for a consumer: 
 ** Committing implies the consumer has fully processed the message.
 ** Committing also represents the starting point for that consumer in the case of failure or a restart.
