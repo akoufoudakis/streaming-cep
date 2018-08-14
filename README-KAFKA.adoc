@@ -6,4 +6,25 @@ This are the fundamentals to be aware about KAFKA that may affect scenario build
 
 === How logs work in Kafka
 
-When you install Kafka, one of the configuration settings is log.dir , which specifies where Kafka stores log data. Each topic maps to a subdirectory under the specified log directory. There will be as many subdirectories as there are topic partitions, with a format of _*partition-name_partition-number*_
+* When you install Kafka, one of the configuration settings is *log.dir* , which specifies where Kafka stores log data. 
+* Each topic maps to a subdirectory under the specified log directory. There will be as many subdirectories as there are topic partitions, with a format of *_partition-name_partition-number_*
+* Inside each directory is the log file where incoming messages are appended. 
+* The logs directory is the base storage for messages. 
+* Each directory under */logs* represents a topic partition. *Filenames within the directory start with the name of the topic, followed by an underscore, which is followed by a partition number*.
+* The topic name gives you a good handle on which log the messages sent to Kafka via producers will be stored in. 
+
+
+* *KAFKA*   Log Directory Parameter:  *_log.dir_*
+* *STRIMZI* Log Directory Parameter:  ??
+
+
+Once the log files reach a certain size (either a number of records or size on disk), or when a configured time difference between message timestamps is reached, the log file is “rolled,” and Kafka appends incoming messages to a new log (see figure 2.6).
+
+* *KAFKA*   Log Rollover Time Based Parameter:  ??
+* *STRIMZI* Log Rollover Time Based Parameter:  ??
+
+* *KAFKA*   Log Rollover Size Based Parameter:  ??
+* *STRIMZI* Log Rollover Size Based Parameter:  ??
+
+* *KAFKA*   Log Rollover No. Of Recs Based Parameter:  ??
+* *STRIMZI* Log Rollover No. Of Recs Based Parameter:  ??
