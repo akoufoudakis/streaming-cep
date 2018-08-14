@@ -85,11 +85,16 @@ Don't: If  you  need  to  perform  in-depth analysis or are compiling a large re
 * link:https://github.com/strimzi/strimzi-lab[Strimzi Lab (RH Summit 2018)]
 * link:https://github.com/radanalyticsio/streaming-lab[radanalytics.io streaming and event processing lab]
 
+=== Books/Papers
+* KAFKA-In-Action-July2018-bbejeck
+* Fast Data Architectures for Streaming Applications (by Lightbend)
+* Enterprise_Java_Microservices 
+
 
 === General Resource Read
 * link:https://databaseline.bitbucket.io/an-overview-of-apache-streaming-technologies/[An Overview of Apache Streaming Technologies]
 * link:https://github.com/finiteloopme/apache-kafka-openshift[Deploy Apache KAFKA on Openshift]
-* link:
+
 
 == KAFKA/ZOOKEEPER Environment Sizing Guidance
 
