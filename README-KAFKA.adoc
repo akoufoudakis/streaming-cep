@@ -182,6 +182,7 @@ For more information about producer configuration, see the Kafka documentation: 
 ** Committing also represents the starting point for that consumer in the case of failure or a restart.
 
 If you have a new consumer instance or some failure has occurred, and the last committed offset isn’t available, where the consumer starts from will depend on your configuration:
+
 * *_auto.offset.reset="earliest"_*	Messages will be retrieved starting at the earliest available offset. Any messages that haven’t yet been removed by the log-management process will be retrieved.
 * *_auto.offset.reset="latest"_*	Messages will be retrieved from the latest offset, essentially only consuming messages from the point of joining the cluster.
 * *_auto.offset.reset="none"_*		No reset strategy is specified. The broker throws an exception to the consumer
