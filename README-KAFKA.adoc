@@ -14,17 +14,59 @@ This are the fundamentals to be aware about KAFKA that may affect scenario build
 * The topic name gives you a good handle on which log the messages sent to Kafka via producers will be stored in. 
 
 
-* *KAFKA*   Log Directory Parameter:  *_log.dir_*
-* *STRIMZI* Log Directory Parameter:  ??
+* Log Directory Parameter
+** *KAFKA*   :  *_log.dir_*
+** *STRIMZI* :  ??
 
 
 Once the log files reach a certain size (either a number of records or size on disk), or when a configured time difference between message timestamps is reached, the log file is “rolled,” and Kafka appends incoming messages to a new log (see figure 2.6).
 
-* *KAFKA*   Log Rollover Time Based Parameter:  ??
-* *STRIMZI* Log Rollover Time Based Parameter:  ??
+* Log Rollover Time Based Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
 
-* *KAFKA*   Log Rollover Size Based Parameter:  ??
-* *STRIMZI* Log Rollover Size Based Parameter:  ??
+Log Rollover Size Based Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
 
-* *KAFKA*   Log Rollover No. Of Recs Based Parameter:  ??
-* *STRIMZI* Log Rollover No. Of Recs Based Parameter:  ??
+* Log Rollover No. Of Recs Based Parameter
+** *KAFKA*   :  ??
+** *STRIMZI* :  ??
+
+
+=== Kafka and partitions
+
+Partitions are a critical part of Kafka’s design. They’re essential for performance, and *they guarantee that data with the same keys will be sent to the same consumer* and in order. 
+
+image:images/KAFKA-Topic-Partitions.png["Kafka Partitions",height=178] 
+
+* Partitioning a topic splits the data forwarded to a topic across parallel streams, and it’s key to how Kafka achieves its tremendous throughput. 
+* A topic is a distributed log; each partition is similarly a log unto itself and follows the same rules.
+* Kafka appends each incoming message to the end of the log, and all messages are strictly time-ordered. 
+* Each message has an offset number assigned to it. 
+* The order of messages across partitions isn’t guaranteed, but the order of messages within each partition is guaranteed.
+* Partitioning serves another purpose, aside from increasing throughput. It allows topic messages to be spread across several machines so that the capacity of a given topic isn’t limited to the available disk space on one server.
+* Now let’s look at another critical role partitions play: ensuring messages with the same keys end up together
+
+==== Partitions group data by key
+* Kafka works with data in key/value pairs. 
+** If the keys are null, the Kafka producer will write records to partitions chosen in a round-robin fashion. 
+
+image:images/KAFKA-Key-Hash-For-Partition.png["Kafka Partitions & Key Hashing",height=178] 
+foo” is sent to partition 0, and “bar” is sent to partition 1. You obtain the partition by hashing the bytes of the key, modulus the number of partitions.
+
+** If the keys aren’t null, Kafka uses the following formula (shown in pseudocode) to determine which partition to send the key/value pair to:
+[source, java]
+----
+HashCode.(key) % number of partitions
+----
+
+By using a deterministic approach to select a partition, records with the same key will always be sent to the same partition and in order. The *default partitioner uses this approach*; if you need a different strategy for selecting partitions, you can provide a custom partitioner.
+
+
+
+
+
+
+
+
