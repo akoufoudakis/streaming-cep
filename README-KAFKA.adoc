@@ -1,0 +1,9 @@
+= KAFKA
+
+This are the fundamentals to be aware about KAFKA that may affect scenario building
+
+== KAFKA Logs
+
+=== How logs work in Kafka
+
+When you install Kafka, one of the configuration settings is log.dir , which specifies where Kafka stores log data. Each topic maps to a subdirectory under the specified log directory. There will be as many subdirectories as there are topic partitions, with a format of _*partition-name_partition-number*_
