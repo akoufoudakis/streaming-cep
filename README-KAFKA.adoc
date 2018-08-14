@@ -22,7 +22,9 @@ This are the fundamentals to be aware about KAFKA that may affect scenario build
 Once the log files reach a certain size (either a number of records or size on disk), or when a configured time difference between message timestamps is reached, the log file is “rolled,” and Kafka appends incoming messages to a new log (see figure 2.6).
 
 * Log Rollover Time Based Parameter
-** *KAFKA*   :  ??
+** *KAFKA*   :  
+*** *_log.roll.ms_* 	This is the primary configuration, but there’s no default value.
+*** *_log.roll.hours_* 	This is the secondary configuration, which is only used if *_log.role.ms_* isn’t set. It defaults to 168 hours.
 ** *STRIMZI* :  ??
 
 Log Rollover Size Based Parameter
@@ -32,6 +34,9 @@ Log Rollover Size Based Parameter
 * Log Rollover No. Of Recs Based Parameter
 ** *KAFKA*   :  ??
 ** *STRIMZI* :  ??
+
+
+
 
 
 == Kafka and partitions
@@ -113,6 +118,8 @@ In addition to *throughput*, there are a few other factors that are worth consid
 2. More Partitions May Increase Unavailability
 3. More Partitions May Increase End-to-end Latency
 4. More Partitions May Require More Memory In the Client
+
+
 
 
 
