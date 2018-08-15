@@ -5,8 +5,10 @@
 
 == STREAMS & State
 
-Ingredients of state in streams
+=== Ingredients of state in streams
+
 State is nothing more than the ability to recall information you’ve seen before and connect it to current information. You can utilize state in different ways. 
+
 * accumulation of values, provided by the Kafka Streams DSL.
 * Joining of streams (closely related to the joins performed in database operations eg. such as joining records from the employee and department tables to generate a report on who staffs which departments
 in a company.)
