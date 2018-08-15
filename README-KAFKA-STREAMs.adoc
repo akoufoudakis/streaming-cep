@@ -1,0 +1,16 @@
+= DEVELOPING with KAFKA STREAMS
+
+== STREAMS DSL
+
+== STREAMS & State
+
+Ingredients of state in streams
+State is nothing more than the ability to recall information you’ve seen before and connect it to current information. You can utilize state in different ways. 
+* accumulation of values, provided by the Kafka Streams DSL.
+* Joining of streams (closely related to the joins performed in database operations eg. such as joining records from the employee and department tables to generate a report on who staffs which departments
+in a company.)
+* What state needs to look like and what the requirements are for using state when we discuss state stores in Kafka Streams. 
+* Importance of timestamps (ensuring you only work with events occurring within a given time frame or helping you work with data arriving out of order)
+
+
+
