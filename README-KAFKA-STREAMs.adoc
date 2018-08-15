@@ -1,4 +1,5 @@
 = DEVELOPING with KAFKA STREAMS
+:toc:
 
 == STREAMS DSL
 
