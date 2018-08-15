@@ -4,6 +4,20 @@
 
 *TBD*
 
+Topic 1: Transaction
+          --> GDPR (filter personal details)
+               --> Rewards Poings --> period (size)
+               --> Fraud --> period (time)
+               --> Credit Scoring --> period (time & size)
+                                        --> Increase/Decrease/Adjust credit card limit
+
+(maybe Topic 2?)   --> Product Scoring --> combine streams (Fraud, Rewards, Credit Scoring) --> over a period --> 
+					--> Open up new Offers
+					--> Revoke offers
+
+Topic 2: Products
+	  --> ??
+
 == Goals
 
 Our goals based on the use case and implemented code is to show
