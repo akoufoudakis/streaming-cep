@@ -1,7 +1,8 @@
 = KAFKA
+:toc:
+
 
 These are the fundamentals to be aware about KAFKA that may affect scenario building
-:toc:
 
 
 == KAFKA Logs
