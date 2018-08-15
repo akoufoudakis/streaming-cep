@@ -11,7 +11,7 @@ Topic 1: Transaction
                --> Credit Scoring --> period (time & size)
                                         --> Increase/Decrease/Adjust credit card limit
 
-(maybe Topic 2?)   --> Product Scoring --> combine streams (Fraud, Rewards, Credit Scoring) --> over a period --> 
+(maybe Topic 3?)   --> Product Scoring --> combine streams (Fraud, Rewards, Credit Scoring) --> over a period --> 
 					--> Open up new Offers
 					--> Revoke offers
 
