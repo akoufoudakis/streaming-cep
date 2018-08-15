@@ -118,7 +118,7 @@ In stream processing, you can group timestamps into 3 categories:
 2. *Ingestion time:*  A timestamp set when the data first enters the data processing pipeline. You can consider the timestamp set by the Kafka broker (assuming a configuration setting of LogAppendTime ) to be ingestion time.
 3. *Processing time:* A timestamp set when the data or event record first starts to flow through a processing pipeline.p
 
-image:images/KAFKA-Timestams.png["VertX Application Scenario",height=178] 
+image:images/KAFKA-Timestams.png["VertX Application Scenario",height=356] 
 
 
 
