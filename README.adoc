@@ -5,18 +5,18 @@
 
 *TBD*
 
-*Topic 1:* Transaction
-* -> GDPR (filter personal details)
-** -> Rewards Poings --> period (size)
-** -> Fraud --> period (time)
-** -> Credit Scoring --> period (time & size)
-*** -> Increase/Decrease/Adjust credit card limit
+* *Topic 1:* Transaction
+** -> GDPR (filter personal details)
+*** -> Rewards Poings --> period (size)
+*** -> Fraud --> period (time)
+*** -> Credit Scoring --> period (time & size)
+**** -> Increase/Decrease/Adjust credit card limit
 
-*(maybe Topic 3?)*   --> Product Scoring --> combine streams (Fraud, Rewards, Credit Scoring) --> over a period --> 
+* *(maybe Topic 3?)*   --> Product Scoring --> combine streams (Fraud, Rewards, Credit Scoring) --> over a period --> 
 ** -> Open up new Offers
-** -> Revoke offers
+*** -> Revoke offers
 
-*Topic 2:* Products
+* *Topic 2:* Products STATE
 ** -> ??
 
 == Goals
