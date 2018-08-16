@@ -10,15 +10,21 @@ In order to run this demo, an OpenShift running cluster is needed. If you don't 
 
 The needed Kafka cluster is deployed on OpenShift using the [Strimzi](http://strimzi.io/) project.
 
-## The Cluster Controller
+## The Cluster Operator
 
 Download the latest Strimzi release from [here](https://github.com/strimzi/strimzi/releases) and unpack it.
 As described in the official documentation, to deploy the Cluster Controller on OpenShift, the following commands 
 should be executed:
 
+Unzip and then execute the following where <namespace> is the namespace where the KAFKA cluser operator will be configured in
+----
+sed -i 's/namespace: .*/namespace: <namespace>/' examples/install/cluster-operator/*ClusterRoleBinding*.yaml
+----
+
+Install the KAFKA cluster operator and templates in the namespace
 ```
-oc create -f examples/install/cluster-controller
-oc create -f examples/templates/cluster-controller
+oc create -f examples/install/cluster-operator
+oc create -f examples/templates/cluster-operator
 ```
 
 > NOTE : the current user needs to have the rights for creating service accounts in the cluster. The simpler way for that 
@@ -33,6 +39,26 @@ The following command will deploy such a cluster and the Topic Controller with t
 ```
 oc new-app strimzi-ephemeral
 ```
+
+*FOR THE DEMONSTRATION AT RHTE 2018 we need
+a) Use the *strimzi-persistent* template
+b) Further tune KAFKA
+c) Create topics (see below) which are relevant to our application
+
+
+
+
+
+
+
+
+
+
+
+
+
+== BELOW ARCHIVED
+
 
 # Deploy the applications
 
@@ -58,6 +84,9 @@ In order to check that the topics are properly created on the Kafka cluster, it'
 ```
 oc exec -it my-cluster-kafka-0 -- bin/kafka-topics.sh --zookeeper my-cluster-zookeeper:2181 --list
 ```
+
+- name: BOOTSTRAP_SERVERS
+              value: "my-cluster-kafka-bootstrap:9092"
 
 The output of the above command should be something like the following showing the created topics.
 
