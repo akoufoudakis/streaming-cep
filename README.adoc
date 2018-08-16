@@ -23,18 +23,20 @@
 ** -> ??
 
 Additionally:
-Think Industry
-Think Channel (mobile, web, in-person)
-Think Merchent
+
+* Think Industry
+* Think Channel (mobile, web, in-person)
+ *Think Merchent
 
 
 Consider Technical 
-- Splitting Stream (Chapter 2 or 3)
-- Aggregation & Windowing (Chapter 5)
+* Splitting Stream (Chapter 2 or 3)
+* Aggregation & Windowing (Chapter 5)
 
 == Goals
 
 Our goals based on the use case and implemented code is to show
+
 * How it is possible to do CEP on top of OCP
 * How to size such an environment
 * What was the architecture (learnings good/bad)
