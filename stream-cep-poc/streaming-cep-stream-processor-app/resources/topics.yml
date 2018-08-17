@@ -1,25 +1,38 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: iot-temperature
+  name: bank-user-transactions
   labels:
-    app: iot-demo
+    app: streaming-cep
     strimzi.io/kind: topic
     strimzi.io/cluster: my-cluster
 data:
-  name: iot-temperature
+  name: bank-user-transactions
   partitions: "3"
   replicas: "1"
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: iot-temperature-max
+  name: bank-rewards
   labels:
-    app: iot-demo
+    app: streaming-cep
     strimzi.io/kind: topic
     strimzi.io/cluster: my-cluster
 data:
-  name: iot-temperature-max
+  name: bank-rewards
+  partitions: "1"
+  replicas: "1"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bank-ops-credit-management
+  labels:
+    app: streaming-cep
+    strimzi.io/kind: topic
+    strimzi.io/cluster: my-cluster
+data:
+  name: bank-ops-credit-management
   partitions: "1"
   replicas: "1"

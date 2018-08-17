@@ -33,40 +33,55 @@ c) Create topics (see below) which are relevant to our application
 
 === Create topics
 
-This demo uses a couple of topics. The first one named `iot-temperature` is used by the device simulator for sending 
-temperature values and by the stream application for getting such values and processing them. The second one is the 
-`iot-temperature-max` topic where the stream application puts the max temperature value processed in the specified time 
-window.
-In order to create these topics in the Kafka cluster, the Topic Controller can be used. Running the following command, a 
-file containing two topic ConfigMaps is deployed to the OpenShift cluster and used by the Topic Controller for creating 
-such topics.
+This demo uses 2 topics (*for now*). 
+1. The first one named *_bank-user-transactions_* is used by the data generator simulator app _streaming-cep-data-generator-app_ for sending *transactional data object* and by the stream processing app _streaming-cep-stream-processor-app_ for getting such values and processing them. 
+2. The second one is the *_bank-rewards_* topic where the stream processing app __streaming-cep-stream-processor-app_ puts the rewards points for each $ in the transaction
+3. The third one is *_bank-ops-credit-management_* topic where the stream processing app __streaming-cep-stream-processor-app_ when > 5 transactions in processed in the specified time window sends to increase credit limit
+
+In order to create these topics in the Kafka cluster, the _Topic Operator_ is used by defining a ConfigMap which is read based on the labels
 
 [source,sh]
 ----
-oc create -f ./stream-app/resources/topics.yml
+    strimzi.io/kind: topic
+    strimzi.io/cluster: my-cluster
 ----
 
-![topics](images/topics.png)
+Running the following command, file containing 3 topic ConfigMaps is deployed to the OpenShift cluster and used by the _Topic Operator_ for creating such topics.
 
-In order to check that the topics are properly created on the Kafka cluster, it's possible to use the `kafka-topics.sh` script 
-(distributed with Kafka) running it on one of the broker.
+[source,sh]
+----
+oc create -f ./streaming-cep-stream-processor-app/resources/topics.yml
+----
+
+image:images/topics.png["In Stream Realtime CEP",height=356] 
+
+In order to check that the topics are properly created on the Kafka cluster, it's possible to use the `kafka-topics.sh` script  (distributed with Kafka) running it on one of the broker.
 
 [source,sh]
 ----
 oc rsh my-cluster-kafka-0
-/opt/kafkabin/kafka-topics.sh --zookeeper my-cluster-zookeeper:2181[0 this can be also 1, 2 or whichever zookeeper pod rsh in] --list
-----
+/opt/kafkabin/kafka-topics.sh --zookeeper localhost:2181[0 this can be also 1, 2 or whichever zookeeper pod rsh in] --list
 
-- name: BOOTSTRAP_SERVERS
-              value: "my-cluster-kafka-bootstrap:9092"
+----
 
 The output of the above command should be something like the following showing the created topics.
 
 [source,sh]
 ----
-iot-temperature
-iot-temperature-max
+bank-ops-credit-management
+bank-rewards
+bank-user-transactions
 ----
+
+
+
+
+
+Note that the applications will have to point to the clustered KAFAK service and we do so via a property *BOOTSTRAP_SERVERS* as followes
+- name: BOOTSTRAP_SERVERS
+              value: "my-cluster-kafka-bootstrap:9092"
+
+
 
 ## Deploy the consumer application
 
