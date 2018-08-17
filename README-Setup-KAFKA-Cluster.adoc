@@ -1,0 +1,119 @@
+= POC on Streaming & CEP with Strimzi and BRMS
+
+== Configure OCP Cluster Environment 
+
+=== Local - Start OpenShift cluster
+
+Start a local OpenShift cluster using the oc tool.
+
+oc cluster up
+oc login -u system:admin
+oc new-project strimzi-cep-poc
+
+ You could use the minishift tool as well.
+
+
+=== AWS - Start OpenShift cluster
+
+*TBD* - Raif to provide scripts and instructions
+
+== Configure KAFKA Cluster Environment on OCP
+
+=== Download Strimzi and extract it
+
+[source, sh]
+----
+wget https://github.com/strimzi/strimzi/releases/download/0.5.0/strimzi-0.5.0.tar.gz
+tar xzvf strimzi-0.5.0.tar.gz
+----
+
+Enter the `strimzi-0.3.0` directory.
+
+[source, sh]
+----
+cd strimzi-0.5.0
+----
+
+Set in the config files the namespace to which objects will be created in (ie. replace <my-namespace> below with strimzi-cep-poc)
+[source, sh]
+----
+sed -i 's/namespace: .*/namespace: <my-namespace>/' examples/install/cluster-operator/*ClusterRoleBinding*.yaml
+----
+
+Log in as OCP cluster administrator to install Strimzi
+(use the password provided by the lab instructors):
+
+[source,sh]
+----
+oc login -u admin https://localhost:8443
+----
+
+
+=== Install the cluster operator and strimzi templates
+
+[source, sh]
+----
+oc create -f examples/install/cluster-operator
+oc create -f examples/templates/cluster-operator
+----
+
+if at any point you need to delete all created objects
+
+[source, sh]
+----
+oc delete -f examples/install/cluster-operator
+oc delete -f examples/templates/cluster-operator
+----
+
+The service account `strimzi-cluster-controller` is granted permission to access various resources in the project.
+This allows it to read the config maps containing the cluster configuration that we will create later in the process.
+
+Now, make sure that the cluster controller is deployed.
+
+[source,sh]
+----
+oc get pods
+----
+
+==== Deploy an ephemeral KAFKA cluster. In this case the Kafka logs are stored in a volume at Pod level so all the messages are lost when the Pod shutdown.
+
+[source,sh]
+----
+oc new-app strimzi-ephemeral
+----
+
+Show the running pods which are started by the underlying StatefulSets created by the Cluster Controller.
+
+[source,sh]
+----
+watch oc get pods
+----
+
+Show the cluster config map which is created by the above template.
+
+[source,sh]
+----
+oc get cm my-cluster -o yaml
+----
+
+==== Update Cluster [OPTIONAL]
+
+Increase the number of Kafka brokers from 3 to 5 updating the kafka-nodes data field in the my-cluster config map.
+
+[source,sh]
+----
+oc edit cm my-cluster
+----
+
+
+Show the running pods; two more Pods are started.
+
+[source,sh]
+----
+watch oc get pods
+----
+
+
+
+
+
