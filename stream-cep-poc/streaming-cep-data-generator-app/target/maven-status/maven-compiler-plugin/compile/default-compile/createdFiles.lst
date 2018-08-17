@@ -1,0 +1,7 @@
+io/strimzi/devices/DeviceConfig.class
+io/strimzi/devices/Device.class
+io/strimzi/devices/sensors/HumiditySensor.class
+io/strimzi/devices/sensors/Sensor.class
+io/strimzi/devices/Main.class
+io/strimzi/devices/sensors/impl/DHT22.class
+io/strimzi/devices/sensors/TemperatureSensor.class
