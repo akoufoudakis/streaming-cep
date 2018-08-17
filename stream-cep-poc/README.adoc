@@ -12,25 +12,6 @@ Read instructions for
 
 == Deploy the applications
 
-=== To point an application to the correct cluster
-
-[source,sh]
-----
-    spec:
-      containers:
-        - name: stream-app
-          image: strimzilab/stream-app:latest
-          env:
-            - name: BOOTSTRAP_SERVERS
-              value: "my-cluster-kafka-bootstrap:9092"
-----
-
-### FOR THE DEMONSTRATION AT RHTE 2018 we need
-a) Use the *strimzi-persistent* template
-b) Further tune KAFKA
-c) Create topics (see below) which are relevant to our application
-
-
 === Create topics
 
 This demo uses 2 topics (*for now*). 
@@ -75,7 +56,23 @@ bank-user-transactions
 
 
 
+=== To point an application to the correct cluster
 
+[source,sh]
+----
+    spec:
+      containers:
+        - name: streaming-cep
+          image: streamingcep/streaming-cep-data-generator-app:latest
+          env:
+            - name: BOOTSTRAP_SERVERS
+              value: "my-cluster-kafka-bootstrap:9092"
+----
+
+==== FOR THE DEMONSTRATION AT RHTE 2018 we need
+a) Use the *strimzi-persistent* template
+b) Further tune KAFKA
+c) Create topics (see below) which are relevant to our application
 
 Note that the applications will have to point to the clustered KAFAK service and we do so via a property *BOOTSTRAP_SERVERS* as followes
 - name: BOOTSTRAP_SERVERS
