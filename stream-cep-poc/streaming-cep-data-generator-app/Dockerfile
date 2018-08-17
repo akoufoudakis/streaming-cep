@@ -1,5 +1,5 @@
-FROM openjdk18-openshift:1.4
+FROM openjdk:8-jre-alpine
 
-ADD target/streaming-cep-data-generator-app.jar /
+ADD /stream-cep-poc/streaming-cep-data-generator-app/target/streaming-cep-data-generator-app.jar /
 
-CMD ["java", "-Dvertx.cacheDirBase=/tmp", "-jar", "streaming-cep-data-generator-app.jar"]
+CMD ["java", "-Dvertx.cacheDirBase=/tmp", "-Dvertx.disableDnsResolver=true", "-jar", "streaming-cep-data-generator-app.jar"]
