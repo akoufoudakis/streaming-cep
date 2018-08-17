@@ -66,5 +66,5 @@ just text
 
 === KAFKA OCP Installation/Configuration
 * link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-KAFKA-Cluster.adoc[Ephemeral - KAFKA Cluster Configuration]
-* link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-Persistent-KAFKA-Cluster.adoc[Ephemeral - KAFKA Cluster Configuration]
+* link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-Persistent-KAFKA-Cluster.adoc[Persistent - KAFKA Cluster Configuration]
 *
