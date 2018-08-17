@@ -1,5 +1,5 @@
 = Setup Environment for OCP & KAFKA
-:toc
+:toc:
 
 == Configure OCP Cluster Environment 
 
