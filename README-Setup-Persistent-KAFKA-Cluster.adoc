@@ -1,0 +1,46 @@
+= Setup Environment for OCP & KAFKA
+:toc
+
+== Configure OCP Cluster Environment 
+
+[red yellow-background]*TBD*
+
+=== Local - Start OpenShift cluster
+
+[red yellow-background]*TBD*
+
+=== AWS - Start OpenShift cluster
+
+[red yellow-background]*TBD*
+
+== Configure KAFKA Cluster Environment on OCP
+
+=== Download Strimzi and extract it
+
+[red yellow-background]*TBD*
+
+=== Install the cluster operator and strimzi templates
+
+[red yellow-background]*TBD*
+
+
+==== Deploy an persistent KAFKA cluster. 
+
+[red yellow-background]*TBD*
+
+
+==== Configure/Tune Persistent Cluster [A MUST]
+
+[red yellow-background]*TBD*
+
+
+==== Update Cluster [OPTIONAL]
+
+[red yellow-background]*TBD*
+
+
+==== Monitor Cluster [A MUST]
+
+
+
+

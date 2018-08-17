@@ -1,4 +1,5 @@
-= POC on Streaming & CEP with Strimzi and BRMS
+= Setup Environment for OCP & KAFKA
+:toc
 
 == Configure OCP Cluster Environment 
 
@@ -15,7 +16,7 @@ oc new-project strimzi-cep-poc
 
 === AWS - Start OpenShift cluster
 
-*TBD* - Raif to provide scripts and instructions
+[red yellow-background]*TBD - Raif to provide scripts and instructions* 
 
 == Configure KAFKA Cluster Environment on OCP
 
