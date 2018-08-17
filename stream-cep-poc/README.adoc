@@ -15,6 +15,7 @@ Read instructions for
 === Create topics
 
 This demo uses 2 topics (*for now*). 
+
 1. The first one named *_bank-user-transactions_* is used by the data generator simulator app _streaming-cep-data-generator-app_ for sending *transactional data object* and by the stream processing app _streaming-cep-stream-processor-app_ for getting such values and processing them. 
 2. The second one is the *_bank-rewards_* topic where the stream processing app __streaming-cep-stream-processor-app_ puts the rewards points for each $ in the transaction
 3. The third one is *_bank-ops-credit-management_* topic where the stream processing app __streaming-cep-stream-processor-app_ when > 5 transactions in processed in the specified time window sends to increase credit limit
