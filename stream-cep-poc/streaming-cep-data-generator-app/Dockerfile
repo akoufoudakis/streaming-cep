@@ -1,5 +1,5 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk18-openshift:1.4
 
-ADD target/device-app.jar /
+ADD target/streaming-cep-data-generator-app.jar /
 
-CMD ["java", "-Dvertx.cacheDirBase=/tmp", "-jar", "device-app.jar"]
+CMD ["java", "-Dvertx.cacheDirBase=/tmp", "-jar", "streaming-cep-data-generator-app.jar"]
