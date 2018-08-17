@@ -16,7 +16,7 @@ oc new-project strimzi-cep-poc
 
 === AWS - Start OpenShift cluster
 
-[red yellow-background]*TBD - Raif to provide scripts and instructions* 
+*TBD - Raif to provide scripts and instructions* 
 
 == Configure KAFKA Cluster Environment on OCP
 

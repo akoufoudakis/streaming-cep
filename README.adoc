@@ -62,11 +62,7 @@ image:images/OCP-CEP-Architecture-Option-1-Micro-Batching.png["Micro-Batching CE
 
 just text
 
-[red]#red text# [yellow-background]#on yellow#
-[big]#large# [red yellow-background big]*all bold*
-
-
-[red yellow-background]*TBD (Raif please add scripts and instructions on this doc for AWS OCP setup)*  link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-KAFKA-Cluster.adoc[Perform OCP Setup]
+* *TBD (Raif please add scripts and instructions on this doc for AWS OCP setup)*  link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-KAFKA-Cluster.adoc[Perform OCP Setup]
 
 === KAFKA OCP Installation/Configuration
 * link:https://github.com/skoussou/streaming-cep/blob/master/README-Setup-KAFKA-Cluster.adoc[Ephemeral - KAFKA Cluster Configuration]
